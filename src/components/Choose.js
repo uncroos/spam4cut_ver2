@@ -11,7 +11,8 @@ const Choose = ({ selectFrame }) => {
     {
       id: "frame1",
       imageClass: "spam-frame", // 프레임 이미지 클래스
-      description: "이 프레임은 ~~~~~~~~~~~~~",
+      description:
+        "이 프레임은 스팸네컷의 대표 프레임입니다. \b 이 프레임에는 SPAM 사진이 35개 사용되었습니다. ",
     },
     {
       id: "frame2",
