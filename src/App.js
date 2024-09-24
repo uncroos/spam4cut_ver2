@@ -51,7 +51,8 @@ function App() {
               <div>
                 <NormalPhotoFrame photos={photos} frameType={selectedFrame} />{" "}
                 {/* NormalPhotoFrame으로 사진 표시 */}
-                <Download /> {/* 다운로드 버튼 */}
+                <Download photos={photos} />{" "}
+                {/* Download 컴포넌트에 photos 전달 */}
               </div>
             )
           }
@@ -61,18 +62,19 @@ function App() {
           element={<Choose selectFrame={handleFrameSelect} />}
         />{" "}
         {/* /choose 경로 */}
-        <Route path="/download" element={<Download />} /> {/* Download 경로 */}
+        <Route path="/download" element={<Download photos={photos} />} />{" "}
+        {/* Download 경로 */}
         <Route
           path="/idol-webcam"
           element={
             <IdolWebcam addPhoto={addPhoto} photoCount={photos.length} />
-          } // IdolWebcamScreen에서 addPhoto 함수와 photoCount 전달
+          }
         />
         <Route
           path="/normal-webcam"
           element={
             <NormalWebcam addPhoto={addPhoto} photoCount={photos.length} />
-          } // NormalWebcamScreen에서 addPhoto 함수와 photoCount 전달
+          }
         />
       </Routes>
     </Router>

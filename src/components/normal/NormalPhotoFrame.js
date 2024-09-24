@@ -28,27 +28,33 @@ const frameLayouts = {
   ],
 };
 
-const PhotoFrame = ({ photos, frameType }) => {
+const NormalPhotoFrame = ({ photos, frameType }) => {
+  // 컴포넌트 이름도 NormalPhotoFrame으로 변경
   const layouts = frameLayouts[frameType] || [];
 
   return (
     <div className="photo-frame">
-      {displayedPhotos.map((photo, index) => (
-        <img
-          key={index}
-          src={photo}
-          alt={`사진 ${index + 1}`}
-          style={{
-            width: `${layouts[index]?.width}px`,
-            height: `${layouts[index]?.height}px`,
-            top: `${layouts[index]?.top}px`,
-            left: `${layouts[index]?.left}px`,
-            position: "absolute",
-            zIndex: 1,
-            objectFit: "cover",
-          }}
-        />
-      ))}
+      {photos.map(
+        (
+          photo,
+          index // displayedPhotos 대신 photos 사용
+        ) => (
+          <img
+            key={index}
+            src={photo}
+            alt={`사진 ${index + 1}`}
+            style={{
+              width: `${layouts[index]?.width}px`,
+              height: `${layouts[index]?.height}px`,
+              top: `${layouts[index]?.top}px`,
+              left: `${layouts[index]?.left}px`,
+              position: "absolute",
+              zIndex: 1,
+              objectFit: "cover",
+            }}
+          />
+        )
+      )}
       <div
         className="frame-overlay"
         style={{
@@ -59,4 +65,4 @@ const PhotoFrame = ({ photos, frameType }) => {
   );
 };
 
-export default PhotoFrame;
+export default NormalPhotoFrame;

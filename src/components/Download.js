@@ -3,71 +3,62 @@ import html2canvas from "html2canvas";
 import "./Download.css";
 
 const Download = () => {
-  const printImage = () => {
+  const elementWidth = 377.95275591;
+  const elementHeight = 559.37;
+
+  // 캔버스 생성 함수
+  const createCanvas = () => {
     const frame = document.querySelector(".photo-frame");
 
     if (frame) {
-      const elementWidth = 377.95275591;
-      const elementHeight = 559.37;
-      html2canvas(frame, {
+      return html2canvas(frame, {
         scale: 4,
         useCORS: true,
         backgroundColor: null,
         windowWidth: elementWidth,
         windowHeight: elementHeight,
-      }).then((canvas) => {
-        const link = document.createElement("img");
-        link.id = "mainImg";
-        link.src = canvas.toDataURL("image/png");
-        var imagObject = new Image();
-        imagObject = link;
-        var originalImage =
-          '<img id="imageViewer" src="' +
-          imagObject.src +
-          '"height="' +
-          100 +
-          '%" width="' +
-          100 +
-          '%" />';
-
-        var popup = window.open(
-          "",
-          "popup",
-          "toolbar=no,menubar=no,width=200,height=150"
-        );
-        popup.document.open();
-        popup.document.write("<html><head></head><body onload='print()'>");
-        popup.document.write(originalImage);
-        popup.document.write("</body></html>");
-        popup.document.close();
       });
     } else {
       alert("사진이 준비되지 않았습니다.");
+      return null;
     }
   };
 
-  const downloadImage = () => {
-    const frame = document.querySelector(".photo-frame");
+  const printImage = () => {
+    createCanvas()?.then((canvas) => {
+      const img = canvas.toDataURL("image/png");
+      const popup = window.open(
+        "",
+        "popup",
+        "toolbar=no,menubar=no,width=600,height=600"
+      );
+      if (popup) {
+        popup.document.open();
+        popup.document.write(`
+          <html>
+            <head>
+              <style>
+                body { margin: 0; display: flex; justify-content: center; align-items: center; }
+                img { width: 100%; height: 100%; object-fit: contain; }
+              </style>
+            </head>
+            <body onload='window.print(); window.close();'>
+              <img src="${img}" alt="사진"/>
+            </body>
+          </html>
+        `);
+        popup.document.close();
+      }
+    });
+  };
 
-    if (frame) {
-      const elementWidth = 377.95275591;
-      const elementHeight = 559.37;
-      html2canvas(frame, {
-        scale: 4,
-        useCORS: true,
-        backgroundColor: null,
-        windowWidth: elementWidth,
-        windowHeight: elementHeight,
-      }).then((canvas) => {
-        // Create a link element
-        const link = document.createElement("a");
-        link.href = canvas.toDataURL("image/png"); // Get the image URL
-        link.download = "insaengnecut.png"; // Set the download filename
-        link.click(); // Programmatically click the link to trigger download
-      });
-    } else {
-      alert("사진이 준비되지 않았습니다.");
-    }
+  const downloadImage = () => {
+    createCanvas()?.then((canvas) => {
+      const link = document.createElement("a");
+      link.href = canvas.toDataURL("image/png"); // 이미지 URL 설정
+      link.download = "insaengnecut.png"; // 다운로드 파일명 설정
+      link.click(); // 다운로드 트리거
+    });
   };
 
   return (
