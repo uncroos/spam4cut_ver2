@@ -28,8 +28,8 @@ const Choose = ({ selectFrame }) => {
       id: "frame4",
       imageClass: "yohan-frame",
       description: `
-이 프레임은 교내 유일 소프트웨어 동아리 SPAM 동아리 
-3기 부장 안요한 프레임입니다. 
+프레임은 교내 유일 소프트웨어이자 0티어 동아리 SPAM의
+3기 부장 안요한 프레임입니다.
 '⭐은 이루어지는 거야' 라는 문구가 적혀 있어, 
 희망과 목표 달성에 대한 메시지를 전달하는 느낌을 줍니다. 
 배경은 무지갯빛 그라데이션으로 처리되어 있습니다. 
@@ -62,7 +62,7 @@ const Choose = ({ selectFrame }) => {
   const handleNext = () => {
     if (currentFrame) {
       selectFrame(currentFrame.id); // 선택된 프레임을 부모 컴포넌트에 전달
-      navigate("/idol-webcam"); // 다음 단계로 이동
+      navigate("/normal-webcam"); // 다음 단계로 이동
     } else {
       alert("프레임을 선택해주세요.");
     }
