@@ -1,6 +1,6 @@
 import React from "react";
-import "./Start.css"; // css 참조
-import spamLogo from "../images/spamlogo.png"; // Adjust the path as needed
+import "./Start.css"; // css 파일 참조
+import spamLogo from "../images/spamlogo.png"; // 로고 이미지 경로 설정
 
 const StartScreen = ({ onStart }) => {
   return (

@@ -1,10 +1,4 @@
-.logo {
-  width: 100px; /* 필요에 따라 조정 */
-  height: 100px; /* 필요에 따라 조정 */
-  margin-bottom: 20px; /* 로고와 아래 요소 간의 간격 */
-}
-
-/* 기본 여백 및 패딩 제거 */
+/* 모든 요소의 기본 여백 및 패딩 제거 */
 * {
   margin: 0; /* 모든 요소의 기본 여백 제거 */
   padding: 0; /* 모든 요소의 기본 패딩 제거 */
@@ -14,42 +8,53 @@
 .start-screen {
   display: flex; /* Flexbox 사용 */
   flex-direction: column; /* 세로 방향으로 정렬 */
-  align-items: center; /* 수평 가운데 정렬 */
-  justify-content: center; /* 수직 가운데 정렬 */
+  align-items: flex-start; /* 왼쪽 정렬 */
+  justify-content: flex-start; /* 상단 정렬 */
   height: 100vh; /* 화면 높이 전체 사용 */
   width: 100vw; /* 화면 너비 전체 사용 */
-  background-color: #3f3f3f; /* 배경 색상 설정 */
+  padding: 230px; /* 화면 테두리와 내용물 사이의 여백 */
+  background-image: url("../images/background.png"); /* 배경 이미지 경로 설정 */
+  background-size: cover; /* 이미지가 화면 전체를 덮도록 설정 */
+  background-position: center; /* 이미지 가운데 정렬 */
+  background-repeat: no-repeat; /* 이미지 반복 없음 */
 }
 
-/* 여유 공간 없이 로고 가운데 정렬 */
+/* 로고 스타일 */
 .logo {
-  width: 300px; /* 필요에 따라 조정 */
-  height: 300px; /* 필요에 따라 조정 */
-  margin-bottom: 20px; /* 로고와 아래 요소 간의 간격 */
+  width: 372px; /* 로고 너비 */
+  height: 110px; /* 로고 높이 */
+  margin-bottom: 30px; /* 로고와 아래 요소 간의 간격 */
 }
 
-/* 제목 및 텍스트 스타일 */
+/* 제목 스타일 */
 h1 {
-  color: #fff; /* 글자 색상 설정 */
-  margin: 10px 0; /* 최소 여백으로 공간 문제 방지 */
-  text-align: center; /* 텍스트 가운데 정렬 */
+  color: #000; /* 제목 글자 색상 */
+  font-size: 48px; /* 제목 글자 크기 */
+  font-weight: bold; /* 굵은 텍스트 */
+  margin: 30px 0; /* 여백 조정 */
+  text-align: left; /* 텍스트 왼쪽 정렬 */
 }
 
+/* 설명 텍스트 스타일 */
 p {
-  color: #fff; /* 글자 색상 설정 */
-  margin: 5px 0 20px; /* 상단 및 하단 여백 조정 */
-  text-align: center; /* 텍스트 가운데 정렬 */
+  color: #000; /* 설명 텍스트 색상 */
+  font-size: 24px; /* 텍스트 크기 */
+  margin: 5px 0 20px; /* 여백 조정 */
+  text-align: left; /* 텍스트 왼쪽 정렬 */
 }
 
 /* 버튼 스타일 */
 button {
-  width: 300px; /* 버튼 너비 */
+  width: 250px; /* 버튼 너비 */
   height: 50px; /* 버튼 높이 */
   padding: 10px 20px; /* 버튼 내부 여백 */
-  font-size: 20px; /* 글자 크기 */
-  font-family: "CookieRun"; /* 폰트 패밀리 설정 */
-  background-color: #fff; /* 버튼 배경 색상 */
-  border-radius: 5px; /* 둥근 모서리 설정 */
+  font-size: 18px; /* 글자 크기 */
+  color: #fff; /* 버튼 글자 색상 */
+  background-color: #000; /* 버튼 배경 색상 */
+  border-radius: 10px; /* 둥근 모서리 설정 */
   border: none; /* 테두리 없음 */
   cursor: pointer; /* 커서 모양을 포인터로 변경 */
+  margin-top: 20px; /* 위 요소와 간격 */
+  font-family: "CookieRun"; /* 폰트 패밀리 명시적 설정 */
+  font-weight: 700; /* 폰트 두께 */
 }
