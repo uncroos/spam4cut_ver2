@@ -1,0 +1,55 @@
+.logo {
+  width: 100px; /* 필요에 따라 조정 */
+  height: 100px; /* 필요에 따라 조정 */
+  margin-bottom: 20px; /* 로고와 아래 요소 간의 간격 */
+}
+
+/* 기본 여백 및 패딩 제거 */
+* {
+  margin: 0; /* 모든 요소의 기본 여백 제거 */
+  padding: 0; /* 모든 요소의 기본 패딩 제거 */
+  box-sizing: border-box; /* 박스 모델을 border-box로 설정 */
+}
+
+.start-screen {
+  display: flex; /* Flexbox 사용 */
+  flex-direction: column; /* 세로 방향으로 정렬 */
+  align-items: center; /* 수평 가운데 정렬 */
+  justify-content: center; /* 수직 가운데 정렬 */
+  height: 100vh; /* 화면 높이 전체 사용 */
+  width: 100vw; /* 화면 너비 전체 사용 */
+  background-color: #3f3f3f; /* 배경 색상 설정 */
+}
+
+/* 여유 공간 없이 로고 가운데 정렬 */
+.logo {
+  width: 300px; /* 필요에 따라 조정 */
+  height: 300px; /* 필요에 따라 조정 */
+  margin-bottom: 20px; /* 로고와 아래 요소 간의 간격 */
+}
+
+/* 제목 및 텍스트 스타일 */
+h1 {
+  color: #fff; /* 글자 색상 설정 */
+  margin: 10px 0; /* 최소 여백으로 공간 문제 방지 */
+  text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+p {
+  color: #fff; /* 글자 색상 설정 */
+  margin: 5px 0 20px; /* 상단 및 하단 여백 조정 */
+  text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+/* 버튼 스타일 */
+button {
+  width: 300px; /* 버튼 너비 */
+  height: 50px; /* 버튼 높이 */
+  padding: 10px 20px; /* 버튼 내부 여백 */
+  font-size: 20px; /* 글자 크기 */
+  font-family: "CookieRun"; /* 폰트 패밀리 설정 */
+  background-color: #fff; /* 버튼 배경 색상 */
+  border-radius: 5px; /* 둥근 모서리 설정 */
+  border: none; /* 테두리 없음 */
+  cursor: pointer; /* 커서 모양을 포인터로 변경 */
+}
