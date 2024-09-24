@@ -1,15 +1,23 @@
 import React from "react";
-import "./Start.css"; // css 파일 참조
-import spamLogo from "../images/spamlogo.png"; // 로고 이미지 경로 설정
+import { useNavigate } from "react-router-dom"; // useNavigate 훅 사용
+import "./Start.css"; // 스타일 시트 파일 불러오기
+import spamLogo from "../images/spamlogo.png"; // 로고 이미지 경로
 
-const StartScreen = ({ onStart }) => {
+const Start = () => {
+  const navigate = useNavigate(); // 페이지 이동을 위한 훅
+
+  const handleStartClick = () => {
+    navigate("/choose"); // /choose 경로로 이동
+  };
+
   return (
     <div className="start-screen">
       <img src={spamLogo} alt="Spam Logo" className="logo" />
-      <h1>스팸네컷</h1>
-      <button onClick={onStart}>시작하기</button>
+      <h1>SPAM</h1>
+      <p>스팸네컷</p>
+      <button onClick={handleStartClick}>시작하기</button>
     </div>
   );
 };
 
-export default StartScreen;
+export default Start;
