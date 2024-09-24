@@ -1,0 +1,67 @@
+/* .webcam-container의 설정을 조정하여 웹캠, 컨트롤, 타이머의 배치를 조정 */
+.webcam-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 수평 중앙 정렬 */
+  justify-content: center; /* 수직 중앙 정렬 */
+  width: 100vw; /* 전체 화면 너비 */
+  height: 100vh; /* 전체 화면 높이 */
+  background-color: #3f3f3f; /* 배경색 설정 */
+  padding: 20px; /* 여백 추가 */
+  box-sizing: border-box; /* 패딩을 포함한 전체 크기 계산 */
+  position: relative; /* 타이머와 같은 절대 위치 요소를 위한 설정 */
+}
+
+/* .webcam 설정을 조정하여 화면에 맞게 표시 */
+.webcam {
+  width: 960px; /* 웹캠의 너비 조정 */
+  height: 1280px; /* 웹캠의 높이 조정 */
+  border: 2px solid #ddd; /* 테두리 설정 */
+  border-radius: 10px; /* 모서리 둥글게 */
+  object-fit: contain; /* 비율 유지하며 컨테이너에 맞춤 */
+}
+
+/* 카운트다운 타이머의 스타일 설정 */
+.countdown-overlay {
+  position: absolute;
+  top: 50%; /* 수직 중앙 */
+  left: 50%; /* 수평 중앙 */
+  transform: translate(-50%, -50%); /* 정확한 중앙 정렬 */
+  font-size: 500px; /* 타이머 크기 */
+  color: #ffffff; /* 타이머 색상 */
+  font-weight: bold; /* 두껍게 표시 */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 그림자 효과 */
+}
+
+/* 컨트롤 패널의 배치 설정 */
+.controls {
+  margin-top: 20px;
+
+  text-align: center; /* 텍스트와 아이콘 중앙 정렬 */
+}
+
+/* 사진 찍은 개수와 관련된 텍스트 스타일 */
+.controls p {
+  margin: 20px 0;
+  font-size: 50px;
+  color: #ffffff; /* 텍스트 색상 */
+}
+
+/* camera-icon 스타일 */
+.camera-icon {
+  cursor: pointer; /* 마우스를 아이콘 위에 올리면 포인터로 변경 */
+  display: flex; /* 플렉스 박스 사용 */
+  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  width: 80px; /* 아이콘 너비 */
+  height: 80px; /* 아이콘 높이 */
+  position: absolute; /* 위치를 고정 */
+  bottom: 30px; /* 하단으로부터의 거리 */
+  left: 50%; /* 수평 중앙으로 이동 */
+  transform: translateX(-50%); /* 정확한 수평 중앙 정렬 */
+}
+
+.camera-icon img {
+  width: 100%; /* 아이콘 이미지 너비 */
+  height: 100%; /* 아이콘 이미지 높이 */
+}

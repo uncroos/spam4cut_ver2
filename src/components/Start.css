@@ -31,7 +31,7 @@ h1 {
   color: #000; /* 제목 글자 색상 */
   font-size: 48px; /* 제목 글자 크기 */
   font-weight: bold; /* 굵은 텍스트 */
-  margin: 30px 0; /* 여백 조정 */
+  margin: 60px 10px; /* 여백 조정 */
   text-align: left; /* 텍스트 왼쪽 정렬 */
 }
 

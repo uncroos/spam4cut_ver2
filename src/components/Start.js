@@ -13,8 +13,8 @@ const Start = () => {
   return (
     <div className="start-screen">
       <img src={spamLogo} alt="Spam Logo" className="logo" />
-      <h1>SPAM</h1>
-      <p>스팸네컷</p>
+      <h1>스팸네컷</h1>
+      <p>-</p>
       <button onClick={handleStartClick}>시작하기</button>
     </div>
   );
