@@ -1,0 +1,93 @@
+.choose-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+h1 {
+  font-size: 60px; /* 폰트 크기 증가 */
+  margin-bottom: 200px; /* 하단 여백 증가 */
+}
+
+.frame-container {
+  display: flex;
+  justify-content: center;
+  gap: 100px; /* 프레임 간격 증가 */
+  margin-bottom: 200px;
+}
+
+.frame-option {
+  width: 540px; /* 프레임 크기 증가 */
+  height: 900px; /* 프레임 크기 증가 */
+  background-color: #f0f0f0;
+  border: 4px solid #ccc; /* 테두리 크기 증가 */
+  border-radius: 15px; /* 테두리 곡률 증가 */
+  cursor: pointer;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.frame-option:hover {
+  transform: scale(1.1); /* 호버 시 크기 증가 */
+  border-color: #888;
+}
+
+.frame-option.selected {
+  border-color: #ff7f50; /* 선택된 프레임의 테두리 색상 */
+  transform: scale(1.15); /* 선택된 프레임의 크기 증가 */
+}
+
+.frame-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+}
+
+/* 각 프레임의 미리보기 이미지 설정 */
+.frame-image.spam-frame {
+  background-image: url("/public/spam_frame.png");
+}
+
+.frame-image.mabear-frame {
+  background-image: url("/public/mabear_frame.png");
+}
+
+.frame-image.cheese-frame {
+  background-image: url("/public/cheese_frame.png");
+}
+
+.frame-image.yaohan-frame {
+  background-image: url("/public/yohan_frame.png"); /* 경로와 파일명 확인 */
+}
+
+.frame-image.merun-frame {
+  background-image: url("/public/merun_frame.png");
+}
+
+.frame-image.newjens-frame {
+  background-image: url("/public/newjens_frame.png"); /* 경로와 파일명 확인 */
+}
+
+.next-button {
+  padding: 30px 150px; /* 버튼의 상하, 좌우 패딩을 크게 조정 */
+  font-size: 32px; /* 폰트 크기를 크게 설정 */
+  border: none;
+  border-radius: 15px; /* 버튼의 모서리를 조금 더 둥글게 설정 */
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  display: flex; /* flexbox로 중앙 정렬 유지 */
+  align-items: center; /* 수직 중앙 정렬 */
+  justify-content: center; /* 수평 중앙 정렬 */
+  transition: background-color 0.3s, transform 0.3s;
+  width: auto; /* 필요한 경우 버튼의 고정 크기를 설정 (예: 400px) */
+  max-width: 100%; /* 버튼 크기가 화면을 넘지 않도록 설정 */
+}
+
+.next-button:hover {
+  background-color: #ddd;
+  transform: scale(1.08); /* 호버 시 크기 증가 */
+}

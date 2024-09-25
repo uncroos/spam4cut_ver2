@@ -1,0 +1,57 @@
+.logo {
+  width: 100px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+  margin-bottom: 20px;
+}
+/* Remove default margins and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.start-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw; /* Ensures full screen width */
+  background-image: url("./background.png");
+  background-size: cover; /* 이미지가 화면 전체를 덮도록 설정 */
+  background-position: center; /* 이미지 가운데 정렬 */
+  background-repeat: no-repeat; /* 이미지 반복 없음 */
+}
+
+/* Center the logo with no extra space */
+.logo {
+  width: 300px; /* Adjust as needed */
+  height: 300px; /* Adjust as needed */
+  margin-bottom: 20px;
+}
+
+/* Style headings and text */
+h1 {
+  color: #000000;
+  margin: 10px 0; /* Minimal margin to avoid space issues */
+  text-align: center;
+}
+
+p {
+  color: #fff;
+  margin: 5px 0 20px;
+  text-align: center;
+}
+
+/* Style the button */
+button {
+  width: 300px;
+  height: 50px;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-family: "CookieRun";
+  background-color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}

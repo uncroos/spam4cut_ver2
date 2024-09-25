@@ -1,0 +1,86 @@
+/* .idol-webcam-container의 설정을 조정하여 웹캠, 컨트롤, 타이머의 배치를 조정 */
+.idol-webcam-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 수평 중앙 정렬 */
+  justify-content: center; /* 수직 중앙 정렬 */
+  width: 100vw; /* 전체 화면 너비 */
+  height: 100vh; /* 전체 화면 높이 */
+  background-color: #3f3f3f; /* 배경색 설정 */
+  padding: 20px; /* 여백 추가 */
+  box-sizing: border-box; /* 패딩을 포함한 전체 크기 계산 */
+  position: relative; /* 타이머와 같은 절대 위치 요소를 위한 설정 */
+}
+
+/* .idol-webcam 설정을 조정하여 화면에 맞게 표시 */
+.idol-webcam {
+  width: 527px; /* 웹캠의 너비 조정 */
+  height: 352px; /* 웹캠의 높이 조정 */
+  object-fit: cover; /* 비율 유지하며 컨테이너에 맞춤 */
+  position: absolute; /* 절대 위치 지정 */
+  z-index: 1; /* 포즈 이미지 위에 배치 */
+}
+
+/* 아이돌 포즈 이미지 오버레이 */
+.idol-overlay {
+  position: absolute; /* 절대 위치 지정 */
+  width: 527px; /* 웹캠의 너비와 맞춤 */
+  height: 352px; /* 웹캠의 높이와 맞춤 */
+  object-fit: cover; /* 비율 유지하며 컨테이너에 맞춤 */
+  z-index: 2; /* 웹캠 위에 배치 */
+}
+
+/* 카운트다운 타이머의 스타일 설정 */
+.idol-countdown-overlay {
+  position: absolute;
+  top: 50%; /* 수직 중앙 */
+  left: 50%; /* 수평 중앙 */
+  transform: translate(-50%, -50%); /* 정확한 중앙 정렬 */
+  font-size: 100px; /* 타이머 크기 */
+  color: #ffffff; /* 타이머 색상 */
+  font-weight: bold; /* 두껍게 표시 */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 그림자 효과 */
+  z-index: 3; /* 포즈 이미지와 웹캠 모두 위에 배치 */
+}
+
+/* 컨트롤 패널의 배치 설정 */
+.idol-controls {
+  position: absolute; /* 절대 위치 */
+  top: calc(
+    50% + 226px
+  ); /* 웹캠의 아래쪽으로 50px 위치 (웹캠의 height/2 + 50px) */
+  left: 50%;
+  transform: translate(-50%, 0); /* 중앙 정렬 */
+  text-align: center; /* 텍스트와 아이콘 중앙 정렬 */
+  z-index: 4; /* 다른 요소 위에 배치 */
+}
+
+/* 사진 찍은 개수와 관련된 텍스트 스타일 */
+.idol-controls p {
+  margin: 0;
+  padding-bottom: 20px;
+  font-size: 30px; /* 폰트 크기 조정 */
+  color: #ffffff; /* 텍스트 색상 */
+}
+
+/* idol-camera-icon 스타일 */
+.idol-camera-icon {
+  cursor: pointer; /* 마우스를 아이콘 위에 올리면 포인터로 변경 */
+  display: flex; /* 플렉스 박스 사용 */
+  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  width: 80px; /* 아이콘 너비 */
+  height: 80px; /* 아이콘 높이 */
+  position: absolute; /* 절대 위치 */
+  top: calc(
+    50% + 100px
+  ); /* 텍스트 아래로 80px 이동 (50px + 텍스트 height 30px) */
+  left: 50%;
+  transform: translate(-50%, -50%); /* 중앙 정렬 */
+  z-index: 5; /* 다른 요소 위에 배치 */
+}
+
+.idol-camera-icon img {
+  width: 100%; /* 아이콘 이미지 너비 */
+  height: 100%; /* 아이콘 이미지 높이 */
+}
