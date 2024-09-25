@@ -1,8 +1,17 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import html2canvas from "html2canvas";
 import "./Download.css";
 
 const Download = ({ photos }) => {
+  const location = useLocation();
+  // location.state로부터 photos를 가져오는 대신 props로 전달받은 photos 사용
+  photos = photos || location.state?.photos || [];
+
+  if (photos.length === 0) {
+    return <div>사진이 준비되지 않았습니다.</div>;
+  }
+
   const elementWidth = 377.95275591;
   const elementHeight = 559.37;
 
@@ -24,11 +33,6 @@ const Download = ({ photos }) => {
   };
 
   const printImage = () => {
-    if (photos.length === 0) {
-      alert("사진이 준비되지 않았습니다.");
-      return;
-    }
-
     createCanvas()?.then((canvas) => {
       const img = canvas.toDataURL("image/png");
       const popup = window.open(
@@ -57,11 +61,6 @@ const Download = ({ photos }) => {
   };
 
   const downloadImage = () => {
-    if (photos.length === 0) {
-      alert("사진이 준비되지 않았습니다.");
-      return;
-    }
-
     createCanvas()?.then((canvas) => {
       const link = document.createElement("a");
       link.href = canvas.toDataURL("image/png");
@@ -72,6 +71,11 @@ const Download = ({ photos }) => {
 
   return (
     <div className="download-box">
+      <div className="photo-frame">
+        {photos.map((photo, index) => (
+          <img key={index} src={photo} alt={`photo-${index}`} />
+        ))}
+      </div>
       <button className="print-button" onClick={printImage}>
         출력
       </button>

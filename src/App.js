@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Start from "./components/Start"; // 확인: 올바른 경로 및 export 방식 확인
+import Start from "./components/Start";
 import Choose from "./components/Choose";
-import IdolWebcam from "./components/idol/IdolCam";
-import NormalWebcam from "./components/normal/NormalCam";
-import Download from "./components/Download"; // export default 확인
-import NormalPhotoFrame from "./components/normal/NormalPhotoFrame"; // export default 확인
+import IdolCam from "./components/idol/IdolCam";
+import NormalCam from "./components/normal/NormalCam";
+import Download from "./components/Download";
+import IdolPhotoFrame from "./components/idol/IdolPhotoFrame";
+import NormalPhotoFrame from "./components/normal/NormalPhotoFrame";
 import "./App.css";
 
 function App() {
@@ -14,19 +15,21 @@ function App() {
   const [selectedFrame, setSelectedFrame] = useState(null);
   const [showStartScreen, setShowStartScreen] = useState(true);
 
+  // 사진 추가 함수
   const addPhoto = (photo) => {
-    if (photos.length < 4) {
-      setPhotos((prevPhotos) => [...prevPhotos, photo]);
-    }
+    setPhotos((prevPhotos) => [...prevPhotos, photo]);
     if (photos.length === 3) {
+      // 4번째 사진 추가 시 촬영 종료
       setIsCapturing(false);
     }
   };
 
+  // 시작 화면에서 시작 버튼을 눌렀을 때 호출
   const handleStart = () => {
     setShowStartScreen(false);
   };
 
+  // 프레임 선택 시 호출
   const handleFrameSelect = (frame) => {
     setSelectedFrame(frame);
     setIsCapturing(true);
@@ -43,11 +46,20 @@ function App() {
             ) : !selectedFrame ? (
               <Choose selectFrame={handleFrameSelect} />
             ) : isCapturing ? (
-              <NormalWebcam addPhoto={addPhoto} photoCount={photos.length} />
+              selectedFrame === "park_frame" ? (
+                <IdolCam addPhoto={addPhoto} photoCount={photos.length} />
+              ) : (
+                <NormalCam addPhoto={addPhoto} photoCount={photos.length} />
+              )
+            ) : selectedFrame === "park_frame" ? (
+              <div>
+                <IdolPhotoFrame photos={photos} frameType={selectedFrame} />
+                <Download photos={photos} />
+              </div>
             ) : (
               <div>
                 <NormalPhotoFrame photos={photos} frameType={selectedFrame} />
-                <Download photos={photos} /> {/* photos 전달 확인 */}
+                <Download photos={photos} />
               </div>
             )
           }
@@ -59,15 +71,11 @@ function App() {
         <Route path="/download" element={<Download photos={photos} />} />
         <Route
           path="/idol-webcam"
-          element={
-            <IdolWebcam addPhoto={addPhoto} photoCount={photos.length} />
-          }
+          element={<IdolCam addPhoto={addPhoto} photoCount={photos.length} />}
         />
         <Route
           path="/normal-webcam"
-          element={
-            <NormalWebcam addPhoto={addPhoto} photoCount={photos.length} />
-          }
+          element={<NormalCam addPhoto={addPhoto} photoCount={photos.length} />}
         />
       </Routes>
     </Router>

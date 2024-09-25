@@ -1,0 +1,11 @@
+.photo-frame {
+  position: relative;
+  width: 1200px;
+  height: 1800px;
+  background-size: cover;
+}
+
+.photo-frame img {
+  position: absolute;
+  object-fit: cover;
+}
