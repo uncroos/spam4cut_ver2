@@ -60,7 +60,7 @@ h1 {
 }
 
 .frame-image.yaohan-frame {
-  background-image: url("/public/yohan_frame.png"); /* 경로와 파일명 확인 */
+  background-image: url("/public/yohan_frame.png");
 }
 
 .frame-image.merun-frame {
@@ -68,7 +68,7 @@ h1 {
 }
 
 .frame-image.newjens-frame {
-  background-image: url("/public/newjens_frame.png"); /* 경로와 파일명 확인 */
+  background-image: url("/public/newjens_frame.png");
 }
 
 .next-button {
